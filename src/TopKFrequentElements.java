@@ -25,7 +25,6 @@ public class TopKFrequentElements {
                 sortedArray.add(b);
             }
             Collections.sort(sortedArray, (o1, o2) -> Integer.compare(o2.getValue(), o1.getValue()));
-            Map<String, Integer> sortedValues = new LinkedHashMap();
             int[] result = new int[k];
             int ittr = 0;
             for (Map.Entry<String, Integer> b : sortedArray.subList(0,k)) {
