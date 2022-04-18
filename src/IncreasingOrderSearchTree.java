@@ -60,8 +60,8 @@ public class IncreasingOrderSearchTree {
             return;
         }
         System.out.print(root.val + " ");
-        printInOrder(root.left);
-        printInOrder(root.right);
+        printPreOrder(root.left);
+        printPreOrder(root.right);
     }
 
     public static void main(String[] args) {

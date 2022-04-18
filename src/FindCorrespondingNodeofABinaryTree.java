@@ -31,26 +31,6 @@ public class FindCorrespondingNodeofABinaryTree {
         }
     }
 
-    public static void printInOrder(TreeNode root) {
-        if (root == null) {
-            System.out.print("null ");
-            return;
-        }
-        printInOrder(root.left);
-        System.out.print(root.val + " ");
-        printInOrder(root.right);
-    }
-
-    public static void printPreOrder(TreeNode root) {
-        if (root == null) {
-            System.out.print("null ");
-            return;
-        }
-        System.out.print(root.val + " ");
-        printInOrder(root.left);
-        printInOrder(root.right);
-    }
-
     public static void main(String[] args) {
         long beforeUsedMem = Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
         long startTime = System.nanoTime();
