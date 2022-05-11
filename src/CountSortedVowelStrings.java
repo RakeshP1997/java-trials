@@ -30,8 +30,9 @@ public class CountSortedVowelStrings {
 
     static class FasterSolutionFormulaBased {
         public int countVowelStrings(int n) {
-            return (n+4)*(n+3)*(n+2)*(n+1) / 24;
+            return (n + 4) * (n + 3) * (n + 2) * (n + 1) / 24;
         }
+    }
 
     public static void main(String[] args) {
         long beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
