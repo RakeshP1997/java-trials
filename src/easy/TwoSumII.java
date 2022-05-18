@@ -1,32 +1,27 @@
-package twoPointer;
+package easy;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
-public class TwoSum {
+public class TwoSumII {
     static class Solution {
-        public void swap(int[] nums, int i, int j) {
-            int temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
-        }
-        public int[] twoSum(int[] nums, int t) {
-            int i=0,j=nums.length-1;
-            nums = Arrays.stream(nums).sorted().toArray();
-            while (i < j) {
-                if (nums[i] + nums[j] == t) {
-                    return new int[]{i + 1, j + 1};
-                } else if (nums[i] + nums[j] > t) {
-                    j--;
-                } else {
-                    i++;
-                }
+        public int[] twoSum(int[] nums, int target) {
+            Map<Integer, Integer> store = new HashMap<>(nums.length, 1);
+            for (int i = 0; i< nums.length; i++) {
+                store.put(nums[i], i);
             }
-            return new int[]{i+1, j+1};
+            for (int i =0; i< nums.length; i++) {
+                int presentVal = store.getOrDefault(target - nums[i], Integer.MIN_VALUE);
+                if (presentVal != Integer.MIN_VALUE && i != presentVal)
+                    return new int[]{i, presentVal};
+            }
+            return new int[]{-1,-1};
         }
     }
+
     public static void main (String[] args) {
-        int [] ip = {-1,0};// -7,-3,2,3,11
-        int target = -1;
+        int [] ip = {3,3};// -7,-3,2,3,11
+        int target = 6;
         long beforeUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
         System.out.println(beforeUsedMem);
         long startTime = System.nanoTime();
