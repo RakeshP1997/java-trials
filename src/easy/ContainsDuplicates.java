@@ -1,12 +1,13 @@
 package easy;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ContainsDuplicates {
     public static class Solution {
         public boolean containsDuplicate(int[] nums) {
-            Map<Integer, Integer> store = new LinkedHashMap<>();
+            Map<Integer, Integer> store = new HashMap<>();
             for (Integer i :
                     nums) {
                 if (store.get(i) != null) {
