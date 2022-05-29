@@ -1,7 +1,6 @@
 package easy;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /** Problem statement: 118. Pascal's Triangle

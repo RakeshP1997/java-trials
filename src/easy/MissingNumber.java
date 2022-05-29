@@ -1,10 +1,5 @@
 package easy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 /**Problem stateent: 268. Missing Number
  * https://leetcode.com/problems/missing-number/
  *
