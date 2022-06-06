@@ -5,32 +5,31 @@ package easy;
  *
  * Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
  */
-public class SymmetricTree {
+public class InvertBinaryTree {
 
-     static class TreeNode {
-         int val;
-         TreeNode left;
-         TreeNode right;
-         TreeNode() {}
-         TreeNode(int val) { this.val = val; }
-         TreeNode(int val, TreeNode left, TreeNode right) {
-             this.val = val;
-             this.left = left;
-             this.right = right;
-         }
-     }
-    static class Solution {
-        public boolean isSymmetric(TreeNode root) {
-            if (root == null)
-                return true;
-            return symmetrical(root.left, root.right);
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
         }
-        private boolean symmetrical(TreeNode r1, TreeNode r2) {
-            if (r1 == null && r2 == null)
-                return true;
-            if (r1 == null || r2 == null)
-                return false;
-            return (r1.val == r2.val)&&symmetrical(r1.left,r2.right)&&symmetrical(r1.right,r2.left);
+    }
+    static class Solution {
+        public TreeNode invertTree(TreeNode root) {
+            if(root==null){
+                return null;
+            }
+
+            TreeNode node2=new TreeNode(root.val);
+            node2.left=invertTree(root.right);
+            node2.right=invertTree(root.left);
+
+            return node2;
         }
     }
 
@@ -42,7 +41,7 @@ public class SymmetricTree {
         TreeNode root = new TreeNode(3, n3, n2);
         long beforeUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
         long startTime = System.nanoTime();
-        boolean op = new Solution().isSymmetric(root);
+        TreeNode op = new Solution().invertTree(root);
         long endTime = System.nanoTime();
         long afterUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
         System.out.println();
