@@ -18,7 +18,7 @@ import easy.TwoSumII;
  */
 public class TwoSumIIInputArrayIsSorted {
     static class Solution {
-        /*//Approach 1: Two pointer
+        //Approach 1: Two pointer
         public int[] twoSum(int[] nums, int t) {
             int i=0,j=nums.length-1;
             while (i < j) {
@@ -31,7 +31,7 @@ public class TwoSumIIInputArrayIsSorted {
                 }
             }
             return new int[]{i+1, j+1};
-        }*/
+        }
         /*//Approach 2: Using Binary Search
         public int[] twoSum(int[] nums, int t) {
             int  i = 0;
@@ -61,7 +61,7 @@ public class TwoSumIIInputArrayIsSorted {
     }
 
     public static void main(String[] args) {
-        int[] ip = {2,7,11,15}; int t= 9;
+        int[] ip = {2,7,11,15}; int t = 9;
 //        int[] ip = {2,3,4}; int t = 6;
 //        int[] ip = {-1,0}; int t = -1;
         long beforeUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
