@@ -1,5 +1,8 @@
 package medium;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
 /**Problem statement: 1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
  * https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/
  *
@@ -40,6 +43,10 @@ public class PartitioningIntoMinimumNumberOfDeciBinaryNumbers {
         String n = "32";
 //        n = "82734";
 //        n = "27346209830709182346";
+        String expiryTime = ZonedDateTime.now(ZoneId.of("UTC")).minusDays(30).toString();
+        String lastAccessTime = ZonedDateTime.now(ZoneId.of("UTC")).minusDays(1).toString();
+        System.out.println("et:" + expiryTime);
+        System.out.println("lat: " + lastAccessTime);
         long beforeUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
         long startTime = System.nanoTime();
         int op = new Solution().minPartitions(n);
