@@ -1,5 +1,6 @@
 package medium;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 /** Problem statement: 1647. Minimum Deletions to Make Character Frequencies Unique
@@ -13,23 +14,38 @@ import java.util.HashSet;
  * For example, in the string "aab", the frequency of 'a' is 2, while the frequency of 'b' is 1.
  */
  public class MinimumDeletionsToMakeCharacterFrequenciesUnique {
+
+//     //Approach 1
+//     static class Solution {
+//        public int minDeletions(String s) {
+//            int[] freq = new int[26];
+//            int count = 0;
+//            for(int i = 0; i<s.length(); i++){
+//                freq[s.charAt(i)-'a'] ++;
+//            }
+//
+//            HashSet<Integer> hs = new HashSet<>();
+//            for(int i = 0; i<freq.length; i++){
+//                while(freq[i]!=0 && hs.contains(freq[i])){
+//                    freq[i]--;
+//                    count++;
+//                }
+//                hs.add(freq[i]);
+//            }
+//            return count;
+//        }
+//    }
+
+    //Approach 2
     static class Solution {
         public int minDeletions(String s) {
-            int[] freq = new int[26];
-            int count = 0;
-            for(int i = 0; i<s.length(); i++){
-                freq[s.charAt(i)-'a'] ++;
-            }
+            char[] c = s.toCharArray();
+            Arrays.sort(c);
+            int cnt = 0;
+            for (char ch :
+                    c) {
 
-            HashSet<Integer> hs = new HashSet<>();
-            for(int i = 0; i<freq.length; i++){
-                while(freq[i]!=0 && hs.contains(freq[i])){
-                    freq[i]--;
-                    count++;
-                }
-                hs.add(freq[i]);
             }
-            return count;
         }
     }
 
