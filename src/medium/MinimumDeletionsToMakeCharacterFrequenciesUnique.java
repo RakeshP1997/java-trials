@@ -16,38 +16,38 @@ import java.util.HashSet;
  public class MinimumDeletionsToMakeCharacterFrequenciesUnique {
 
 //     //Approach 1
-//     static class Solution {
-//        public int minDeletions(String s) {
-//            int[] freq = new int[26];
-//            int count = 0;
-//            for(int i = 0; i<s.length(); i++){
-//                freq[s.charAt(i)-'a'] ++;
-//            }
-//
-//            HashSet<Integer> hs = new HashSet<>();
-//            for(int i = 0; i<freq.length; i++){
-//                while(freq[i]!=0 && hs.contains(freq[i])){
-//                    freq[i]--;
-//                    count++;
-//                }
-//                hs.add(freq[i]);
-//            }
-//            return count;
-//        }
-//    }
-
-    //Approach 2
-    static class Solution {
+     static class Solution {
         public int minDeletions(String s) {
-            char[] c = s.toCharArray();
-            Arrays.sort(c);
-            int cnt = 0;
-            for (char ch :
-                    c) {
-
+            int[] freq = new int[26];
+            int count = 0;
+            for(int i = 0; i<s.length(); i++){
+                freq[s.charAt(i)-'a'] ++;
             }
+
+            HashSet<Integer> hs = new HashSet<>();
+            for(int i = 0; i<freq.length; i++){
+                while(freq[i]!=0 && hs.contains(freq[i])){
+                    freq[i]--;
+                    count++;
+                }
+                hs.add(freq[i]);
+            }
+            return count;
         }
     }
+
+    //Approach 2
+//    static class Solution {
+//        public int minDeletions(String s) {
+//            char[] c = s.toCharArray();
+//            Arrays.sort(c);
+//            int cnt = 0;
+//            for (char ch :
+//                    c) {
+//
+//            }
+//        }
+//    }
 
     public static void main(String[] args) {
         String s = "aab";
